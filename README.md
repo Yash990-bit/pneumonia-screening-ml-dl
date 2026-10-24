@@ -99,7 +99,7 @@ The audit is a forensic inventory and integrity check, not preprocessing. It doe
 
 ## Current project status
 
-**Dataset audit complete.** The manually supplied canonical dataset under `data/raw/chest_xray/` contains 5,856 readable images. The reusable read-only audit found 30 within-split exact-duplicate groups affecting 62 files, no cross-split exact duplicates, and no conflicting-label duplicates. Raw data remains excluded from Git. Preprocessing, feature extraction, models, training, evaluation, explainability, and model results remain **PLANNED** and have not been implemented.
+**Data preprocessing & stratified splitting pipeline complete.** The dataset audit established baseline data characteristics across 5,856 images. The preprocessing pipeline standardizes images to single-channel Grayscale and 224x224 pixels. A group-aware stratified re-splitting pipeline resolved the 16-sample validation split deficiency, establishing 4,432 train, 784 validation, and 624 untouched test images with zero cross-split duplicate leakage (`data/processed/split_manifest.csv`). Feature extraction, models, training, evaluation, explainability, and model results remain **PLANNED** for downstream tasks.
 
 ## Medical and research disclaimer
 
