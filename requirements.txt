@@ -9,3 +9,5 @@ torch
 torchvision
 PyYAML
 jupyter
+joblib
+tqdm

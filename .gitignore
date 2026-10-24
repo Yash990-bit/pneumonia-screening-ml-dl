@@ -73,3 +73,6 @@ results/dataset_audit/duplicate_report.csv
 results/dataset_audit/cross_split_duplicates.csv
 results/dataset_audit/corrupt_files.csv
 results/dataset_audit/structure_issues.csv
+
+# Temp config patch written by scripts/extract_features.py CLI overrides
+configs/_patched_config.yaml

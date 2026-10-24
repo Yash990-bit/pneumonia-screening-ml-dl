@@ -16,3 +16,23 @@ class_names:
   - PNEUMONIA
 
 positive_class: PNEUMONIA
+
+# ---------------------------------------------------------------------------
+# HOG feature extraction parameters
+# Modify pixels_per_cell to (8, 8) for finer resolution experiments.
+# ---------------------------------------------------------------------------
+hog:
+  orientations: 9          # Number of gradient orientation bins
+  pixels_per_cell: [16, 16] # Cell size in pixels; try [8, 8] for finer HOG
+  cells_per_block: [2, 2]  # Block size in cells (for block normalisation)
+  block_norm: "L2-Hys"     # Block normalisation method
+  transform_sqrt: true     # Gamma-compression for illumination robustness
+
+# ---------------------------------------------------------------------------
+# LBP texture feature extraction parameters
+# Uniform LBP (method='uniform') produces P+2 histogram bins = 10 for P=8.
+# ---------------------------------------------------------------------------
+lbp:
+  P: 8            # Number of circularly symmetric neighbour points
+  R: 1.0          # Radius of the LBP circle in pixels
+  method: "uniform"  # Use 'uniform' for rotation-invariant patterns

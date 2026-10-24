@@ -99,7 +99,29 @@ The audit is a forensic inventory and integrity check, not preprocessing. It doe
 
 ## Current project status
 
-**Data preprocessing & stratified splitting pipeline complete.** The dataset audit established baseline data characteristics across 5,856 images. The preprocessing pipeline standardizes images to single-channel Grayscale and 224x224 pixels. A group-aware stratified re-splitting pipeline resolved the 16-sample validation split deficiency, establishing 4,432 train, 784 validation, and 624 untouched test images with zero cross-split duplicate leakage (`data/processed/split_manifest.csv`). Feature extraction, models, training, evaluation, explainability, and model results remain **PLANNED** for downstream tasks.
+**Phase 1 classical feature engineering pipeline complete.** The dataset audit established baseline data characteristics across 5,856 images. The preprocessing pipeline standardizes images to single-channel Grayscale and 224×224 pixels. A group-aware stratified re-splitting pipeline established 4,432 train, 784 validation, and 624 untouched test images with zero cross-split duplicate leakage (`data/processed/split_manifest.csv`).
+
+The HOG and LBP feature extraction pipeline (`src/features/`) is implemented and tested:
+
+- **HOG** (`src/features/hog.py`): `skimage.feature.hog` — configurable `orientations`, `pixels_per_cell`, `cells_per_block`, `block_norm` via `configs/config.yaml`. Defaults: 9 orientations, 16×16 pixels-per-cell, 2×2 cells-per-block, L2-Hys → **6,084-dim** vector per image.
+- **LBP** (`src/features/lbp.py`): `skimage.feature.local_binary_pattern` — P=8, R=1, method='uniform' → **10-bin** normalised histogram per image (captures diffuse lung opacities that HOG misses).
+- **Pipeline** (`src/features/build_features.py`): three feature configs (`hog`, `lbp`, `combined`). `StandardScaler` fitted **strictly on training data only**; val and test are transformed only — never refitted. Outputs cached as `.npz` + `.joblib` under `data/processed/`.
+
+To extract features once `split_manifest.csv` exists:
+
+```bash
+# All three feature configs (default params from configs/config.yaml)
+python scripts/extract_features.py
+
+# Fine HOG experiment with 8×8 pixels-per-cell
+python scripts/extract_features.py --config hog --pixels-per-cell 8 8
+
+# Single config only
+python scripts/extract_features.py --config combined
+```
+
+SVM model training, evaluation, explainability, and Phase 2 deep learning remain **PLANNED**.
+
 
 ## Medical and research disclaimer
 
