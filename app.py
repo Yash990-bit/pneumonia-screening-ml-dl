@@ -619,8 +619,8 @@ with tab3:
         st.markdown("##### 📈 Publication-Quality Diagnostic Evaluation Curves")
         st.caption("High-resolution 300 DPI ROC curves and Platt scaling probability calibration curves.")
 
-        fig_roc_path = ROOT_DIR / "results" / "figures" / "roc_curves_comparison.png"
-        fig_cal_path = ROOT_DIR / "results" / "figures" / "calibration_curves.png"
+        fig_roc_path = PROJECT_ROOT / "results" / "figures" / "roc_curves_comparison.png"
+        fig_cal_path = PROJECT_ROOT / "results" / "figures" / "calibration_curves.png"
 
         if fig_roc_path.is_file() and fig_cal_path.is_file():
             c_roc, c_cal = st.columns(2)
@@ -628,9 +628,9 @@ with tab3:
             c_cal.image(str(fig_cal_path), caption="Zero-Leakage Platt Probability Calibration Reliability", use_container_width=True)
 
         # Benchmark Confusion Matrices
-        cm_linear = ROOT_DIR / "results" / "figures" / "confusion_matrix_hog_linear_svm.png"
-        cm_rbf = ROOT_DIR / "results" / "figures" / "confusion_matrix_hog_rbf_svm.png"
-        cm_lbp = ROOT_DIR / "results" / "figures" / "confusion_matrix_hog_lbp_rbf_svm.png"
+        cm_linear = PROJECT_ROOT / "results" / "figures" / "confusion_matrix_hog_linear_svm.png"
+        cm_rbf = PROJECT_ROOT / "results" / "figures" / "confusion_matrix_hog_rbf_svm.png"
+        cm_lbp = PROJECT_ROOT / "results" / "figures" / "confusion_matrix_hog_lbp_rbf_svm.png"
 
         if cm_linear.is_file() and cm_rbf.is_file() and cm_lbp.is_file():
             st.markdown("##### 🩺 Benchmark Confusion Matrices")
