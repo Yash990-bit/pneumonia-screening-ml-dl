@@ -614,6 +614,31 @@ with tab3:
         fig_cm.update_layout(height=260, margin=dict(t=20, b=20, l=20, r=20))
         st.plotly_chart(fig_cm, use_container_width=True)
 
+        # Publication-Grade Diagnostic Evaluation Figures
+        st.markdown("---")
+        st.markdown("##### 📈 Publication-Quality Diagnostic Evaluation Curves")
+        st.caption("High-resolution 300 DPI ROC curves and Platt scaling probability calibration curves.")
+
+        fig_roc_path = ROOT_DIR / "results" / "figures" / "roc_curves_comparison.png"
+        fig_cal_path = ROOT_DIR / "results" / "figures" / "calibration_curves.png"
+
+        if fig_roc_path.is_file() and fig_cal_path.is_file():
+            c_roc, c_cal = st.columns(2)
+            c_roc.image(str(fig_roc_path), caption="Multi-Model ROC Comparison Curves", use_container_width=True)
+            c_cal.image(str(fig_cal_path), caption="Zero-Leakage Platt Probability Calibration Reliability", use_container_width=True)
+
+        # Benchmark Confusion Matrices
+        cm_linear = ROOT_DIR / "results" / "figures" / "confusion_matrix_hog_linear_svm.png"
+        cm_rbf = ROOT_DIR / "results" / "figures" / "confusion_matrix_hog_rbf_svm.png"
+        cm_lbp = ROOT_DIR / "results" / "figures" / "confusion_matrix_hog_lbp_rbf_svm.png"
+
+        if cm_linear.is_file() and cm_rbf.is_file() and cm_lbp.is_file():
+            st.markdown("##### 🩺 Benchmark Confusion Matrices")
+            cm1, cm2, cm3 = st.columns(3)
+            cm1.image(str(cm_linear), caption="HOG + Linear SVM", use_container_width=True)
+            cm2.image(str(cm_rbf), caption="HOG + RBF SVM", use_container_width=True)
+            cm3.image(str(cm_lbp), caption="HOG + LBP + RBF SVM", use_container_width=True)
+
 # ===========================================================================
 # TAB 4: Dataset Forensic Audit & Anti-Leakage Split Architecture
 # ===========================================================================

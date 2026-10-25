@@ -253,15 +253,22 @@ def calibrate_classifier(
             f"Validation labels must contain both classes {0, 1} for calibration; got {unique_classes}."
         )
 
-    # Use cv='prefit' as specified in technical brief, catching deprecation warning cleanly
-    with warnings.catch_warnings():
-        warnings.filterwarnings("ignore", category=FutureWarning)
+    # Support both scikit-learn >= 1.6/1.8 (FrozenEstimator) and legacy (<1.6 cv="prefit")
+    try:
+        from sklearn.frozen import FrozenEstimator
         calibrated = CalibratedClassifierCV(
-            estimator=estimator,
+            estimator=FrozenEstimator(estimator),
             method=method,
-            cv="prefit",
         )
-        calibrated.fit(X_val_arr, y_val_arr)
+    except ImportError:
+        with warnings.catch_warnings():
+            warnings.filterwarnings("ignore", category=FutureWarning)
+            calibrated = CalibratedClassifierCV(
+                estimator=estimator,
+                method=method,
+                cv="prefit",
+            )
+    calibrated.fit(X_val_arr, y_val_arr)
 
     return calibrated
 
