@@ -120,7 +120,23 @@ python scripts/extract_features.py --config hog --pixels-per-cell 8 8
 python scripts/extract_features.py --config combined
 ```
 
-SVM model training, evaluation, explainability, and Phase 2 deep learning remain **PLANNED**.
+The Phase 1 SVM training runner is implemented in `src/models/classical.py` and
+`scripts/train_classical.py`. It runs stratified 5-fold cross-validation on the
+training split, selects parameters by balanced accuracy, reports a validation
+balanced-accuracy score, and serializes each selected estimator under
+`results/models/`. The runner reads only train and validation caches and refits
+the saved estimator on train plus validation; it does not access the test split.
+Run it after extracting the feature caches:
+
+```bash
+python scripts/train_classical.py
+```
+
+The three available models are `hog_linear_svm`, `hog_rbf_svm`, and
+`hog_lbp_rbf_svm`. Training summaries, including best parameters and timing,
+are written to `results/metrics/classical_training.json`. No SVM experiments
+have been run yet because feature caches are not currently present. Final
+evaluation, explainability, and Phase 2 deep learning remain **PLANNED**.
 
 
 ## Medical and research disclaimer
