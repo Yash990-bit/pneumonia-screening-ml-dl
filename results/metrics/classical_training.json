@@ -1,0 +1,40 @@
+{
+  "hog_linear_svm": {
+    "best_params": {
+      "C": 0.01
+    },
+    "best_cv_score": 0.9476,
+    "val_accuracy": 0.96,
+    "val_balanced_accuracy": 0.9625,
+    "val_sensitivity": 0.95,
+    "elapsed_seconds": 5.54,
+    "train_samples": 400,
+    "val_samples": 100
+  },
+  "hog_rbf_svm": {
+    "best_params": {
+      "C": 10.0,
+      "gamma": "scale"
+    },
+    "best_cv_score": 0.9521,
+    "val_accuracy": 0.97,
+    "val_balanced_accuracy": 0.9708,
+    "val_sensitivity": 0.9667,
+    "elapsed_seconds": 27.92,
+    "train_samples": 400,
+    "val_samples": 100
+  },
+  "hog_lbp_rbf_svm": {
+    "best_params": {
+      "C": 10.0,
+      "gamma": "scale"
+    },
+    "best_cv_score": 0.9549,
+    "val_accuracy": 0.97,
+    "val_balanced_accuracy": 0.9708,
+    "val_sensitivity": 0.9667,
+    "elapsed_seconds": 30.69,
+    "train_samples": 400,
+    "val_samples": 100
+  }
+}

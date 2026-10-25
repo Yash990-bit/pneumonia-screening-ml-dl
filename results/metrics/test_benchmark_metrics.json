@@ -1,0 +1,44 @@
+{
+  "HOG + Linear SVM": {
+    "accuracy": 0.825,
+    "sensitivity": 0.9878048780487805,
+    "specificity": 0.47368421052631576,
+    "precision": 0.801980198019802,
+    "f1_score": 0.8852459016393442,
+    "roc_auc": 0.8940949935815147,
+    "brier_score": 0.13495340148686302,
+    "true_positives": 81,
+    "false_positives": 20,
+    "true_negatives": 18,
+    "false_negatives": 1,
+    "total_samples": 120
+  },
+  "HOG + RBF SVM": {
+    "accuracy": 0.7833333333333333,
+    "sensitivity": 0.9878048780487805,
+    "specificity": 0.34210526315789475,
+    "precision": 0.7641509433962265,
+    "f1_score": 0.8617021276595744,
+    "roc_auc": 0.8751604621309371,
+    "brier_score": 0.1783356872250001,
+    "true_positives": 81,
+    "false_positives": 25,
+    "true_negatives": 13,
+    "false_negatives": 1,
+    "total_samples": 120
+  },
+  "HOG + LBP + SVM": {
+    "accuracy": 0.7833333333333333,
+    "sensitivity": 0.9878048780487805,
+    "specificity": 0.34210526315789475,
+    "precision": 0.7641509433962265,
+    "f1_score": 0.8617021276595744,
+    "roc_auc": 0.8758023106546855,
+    "brier_score": 0.17839149746003582,
+    "true_positives": 81,
+    "false_positives": 25,
+    "true_negatives": 13,
+    "false_negatives": 1,
+    "total_samples": 120
+  }
+}

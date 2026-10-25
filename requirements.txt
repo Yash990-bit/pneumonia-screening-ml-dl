@@ -11,3 +11,5 @@ PyYAML
 jupyter
 joblib
 tqdm
+streamlit
+plotly
