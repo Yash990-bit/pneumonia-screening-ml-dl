@@ -516,9 +516,8 @@ with tab2:
             n_orient = st.slider("Orientation Bins:", 6, 12, 9, key="tab2_orient")
             cell_size = st.select_slider("Pixels Per Cell:", options=[8, 16], value=16, key="tab2_cell")
         with col_l_param:
-            st.markdown("##### LBP Micro-Texture Hyperparameters")
-            lbp_r = st.slider("LBP Radius (R):", 1.0, 3.0, 1.0, 0.5, key="tab2_r")
-            lbp_p = st.slider("Neighbor Set Points (P):", 8, 16, 8, 8, key="tab2_p")
+            lbp_r = st.slider("LBP Radius (R):", min_value=1.0, max_value=5.0, value=1.0, step=0.5, key="tab2_r", help="Spatial neighborhood radius around center pixel.")
+            lbp_p = st.select_slider("Neighbor Set Points (P):", options=[8, 12, 16, 24], value=8, key="tab2_p", help="Number of circularly symmetric neighbor samples.")
 
         t0 = time.time()
         h_f, h_vis = compute_hog_vis(std_f, orientations=n_orient, ppc=(cell_size, cell_size))
