@@ -49,6 +49,8 @@ data/raw/**
 data/processed/**
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+!data/processed/split_manifest.csv
+!data/sample_images/**
 
 # Model checkpoints and serialized training artifacts
 *.pt
@@ -57,6 +59,7 @@ data/processed/**
 *.onnx
 results/models/**
 !results/models/.gitkeep
+!results/models/*.joblib
 
 # Generated figures and transient experiment output
 results/figures/**

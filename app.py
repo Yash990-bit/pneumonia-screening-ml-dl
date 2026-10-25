@@ -324,6 +324,16 @@ def dataset_image_picker(key_prefix: str = "main") -> tuple[Path | None, dict | 
     st.session_state[idx_key] = chosen_pos
 
     selected_file = PROJECT_ROOT / paths[chosen_pos]
+    if not selected_file.is_file():
+        fallback_file = PROJECT_ROOT / "data" / "sample_images" / Path(paths[chosen_pos]).name
+        if fallback_file.is_file():
+            selected_file = fallback_file
+        else:
+            sample_dir = PROJECT_ROOT / "data" / "sample_images"
+            if sample_dir.is_dir():
+                avail = sorted(list(sample_dir.glob("*.jpeg")))
+                if avail:
+                    selected_file = avail[chosen_pos % len(avail)]
     metadata = df.iloc[chosen_pos].to_dict()
     return selected_file, metadata
 
