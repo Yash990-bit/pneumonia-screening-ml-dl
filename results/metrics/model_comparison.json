@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-10-25T13:42:44.081814+00:00",
+    "disclaimer": "Educational research prototype \u2014 NOT intended for clinical diagnosis or medical decision-making.",
+    "zero_leakage_calibration": "Platt scaling (CalibratedClassifierCV) fit strictly on validation split",
+    "positive_class": "PNEUMONIA (1)",
+    "negative_class": "NORMAL (0)"
+  },
+  "models": {
+    "hog_linear_svm": {
+      "sensitivity": 0.9634146341463414,
+      "specificity": 0.868421052631579,
+      "precision": 0.9404761904761905,
+      "f1_score": 0.9518072289156626,
+      "balanced_accuracy": 0.9159178433889602,
+      "accuracy": 0.9333333333333333,
+      "roc_auc": 0.983632862644416,
+      "brier_score": 0.07796769728442891,
+      "true_positives": 79,
+      "false_positives": 5,
+      "true_negatives": 33,
+      "false_negatives": 3,
+      "total_samples": 120,
+      "positive_class": "PNEUMONIA",
+      "negative_class": "NORMAL",
+      "disclaimer": "Educational research prototype \u2014 NOT intended for clinical diagnosis or medical decision-making."
+    },
+    "hog_rbf_svm": {
+      "sensitivity": 0.9634146341463414,
+      "specificity": 0.6578947368421053,
+      "precision": 0.8586956521739131,
+      "f1_score": 0.9080459770114943,
+      "balanced_accuracy": 0.8106546854942234,
+      "accuracy": 0.8666666666666667,
+      "roc_auc": 0.9698331193838253,
+      "brier_score": 0.10135274319280257,
+      "true_positives": 79,
+      "false_positives": 13,
+      "true_negatives": 25,
+      "false_negatives": 3,
+      "total_samples": 120,
+      "positive_class": "PNEUMONIA",
+      "negative_class": "NORMAL",
+      "disclaimer": "Educational research prototype \u2014 NOT intended for clinical diagnosis or medical decision-making."
+    },
+    "hog_lbp_rbf_svm": {
+      "sensitivity": 0.975609756097561,
+      "specificity": 0.7368421052631579,
+      "precision": 0.8888888888888888,
+      "f1_score": 0.9302325581395349,
+      "balanced_accuracy": 0.8562259306803595,
+      "accuracy": 0.9,
+      "roc_auc": 0.9845956354300385,
+      "brier_score": 0.08427251169025737,
+      "true_positives": 80,
+      "false_positives": 10,
+      "true_negatives": 28,
+      "false_negatives": 2,
+      "total_samples": 120,
+      "positive_class": "PNEUMONIA",
+      "negative_class": "NORMAL",
+      "disclaimer": "Educational research prototype \u2014 NOT intended for clinical diagnosis or medical decision-making."
+    }
+  }
+}
